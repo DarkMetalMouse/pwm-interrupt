@@ -2,7 +2,6 @@ package frc.robot.utils;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SynchronousInterrupt;
-import edu.wpi.first.wpilibj.SynchronousInterrupt.WaitResult;
 
 /**
  * DutyCycleInterrupt
