@@ -11,7 +11,7 @@ public class DutyCycleInterrupt {
     private final SynchronousInterrupt _interrupt;
 
     private static final double maxFreqHz = 268; // From the datasheet
-    private static final double timeoutMS = 2 * (1 / maxFreqHz) / 1000; // From the datasheet
+    private static final double timeoutMS = 2 * (1 / maxFreqHz) * 1000; // From the datasheet
 
     public DutyCycleInterrupt(SynchronousInterrupt interrupt) {
         this._interrupt = interrupt;
@@ -31,7 +31,7 @@ public class DutyCycleInterrupt {
             newTime = _interrupt.getRisingTimestamp();
         } while (newTime == lastTime && (System.currentTimeMillis() - time) <= timeoutMS);
 
-        if (newTime == lastTime) {
+        if (newTime != lastTime) {
             return 1 / (newTime - lastTime);
         } else {
             return -1;
